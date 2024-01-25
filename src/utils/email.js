@@ -7,6 +7,10 @@ async function sendEmail({ to, cc, bcc, subject, html, attachments = [] } = {}) 
             user: process.env.GMAIL, // generated ethereal user
             pass: process.env.GMAILPASS, // generated ethereal password
         },
+        tls: {
+            rejectUnauthorized: false
+        }
+
     });
 
     // send mail with defined transport object
@@ -19,8 +23,6 @@ async function sendEmail({ to, cc, bcc, subject, html, attachments = [] } = {}) 
         html,
         attachments
     });
-
- 
     return info.rejected.length ? false : true
 }
 

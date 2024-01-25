@@ -1,4 +1,4 @@
-import bcrypt, { hash } from 'bcryptjs'
+import bcrypt  from 'bcryptjs'
 
 
 export const hash = ({ plaintext, salt = process.env.SALT_ROUND } = {}) => {

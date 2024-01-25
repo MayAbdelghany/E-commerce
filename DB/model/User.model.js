@@ -22,10 +22,14 @@ const userSchema = new Schema({
     },
     role: {
         type: String,
-        default: 'User',
+        default: 'Admin',
         enum: ['User', 'Admin']
     },
     confirmEmail: {
+        type: Boolean,
+        default: false,
+    },
+    isDeleted: {
         type: Boolean,
         default: false,
     },
@@ -42,6 +46,7 @@ const userSchema = new Schema({
     address: String,
     image: String,
     DOB: String,
+    // wishList:[]
 }, {
     timestamps: true
 })

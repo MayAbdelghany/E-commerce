@@ -5,19 +5,21 @@ const categorySchema = new Schema({
         type: String,
         unique: [true, 'name must be unique'],
         required: [true, 'name is required'],
-        trim: true
+        trim: true,
+        lowercase: true
     },
     slug: {
         type: String,
         unique: [true, 'slug must be unique'],
         required: [true, 'slug is required'],
-        trim: true
+        trim: true,
+        lowercase: true
     },
     image: {
         type: Object,
         required: [true, 'image is required']
     },
-    userId: {
+    createdBy: {
         type: Types.ObjectId,
         ref: 'User',
         required: [false, 'userId is required']   //replace to true

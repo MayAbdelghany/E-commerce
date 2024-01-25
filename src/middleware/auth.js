@@ -1,10 +1,13 @@
 import jwt from "jsonwebtoken";
-import userModel from "../../DB/model/User.js";
+import userModel from "../../DB/model/User.model.js";
 
 
 
 const auth = async (req, res, next) => {
     const { authorization } = req.headers;
+    if (!authorization) {
+        return res.status(400).json({ message: "please login" })
+    }
     if (!authorization?.startsWith(process.env.BEARER_KEY)) {
         return res.status(400).json({ message: "In-valid bearer key" })
     }
